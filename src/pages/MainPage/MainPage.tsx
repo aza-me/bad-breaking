@@ -1,6 +1,7 @@
 import { Tab, Tabs, Typography } from '@mui/material';
 import { Box, Container } from '@mui/system';
 import React, { useEffect } from 'react';
+import { NavLink } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from 'store/hooks';
 import { getAllEpisodes } from 'store/modules/episodes';
 
@@ -47,7 +48,10 @@ const MainPage: React.FC = () => {
 
   return (
     <Container>
+
+      
       <Box sx={{ flexGrow: 1, display: 'flex' }}>
+        <NavLink to={'episodes'}>ПРОВЕРКА </NavLink>
         <Tabs
           orientation='vertical'
           variant='scrollable'

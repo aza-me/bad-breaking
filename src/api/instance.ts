@@ -14,4 +14,9 @@ const instance = axios.create({
   },
 });
 
+export const getEpisodesByID = async (id: number) => {
+  const response = await axios.get(getBaseUrl + '/' + id);
+  return response.data;
+};
+
 export default instance;
