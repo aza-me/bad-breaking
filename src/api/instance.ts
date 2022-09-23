@@ -9,7 +9,6 @@ const getBaseUrl = () => {
 
 const instance = axios.create({
   baseURL: getBaseUrl(),
-  withCredentials: true,
   headers: {
     'Content-Type': 'application/json',
   },
