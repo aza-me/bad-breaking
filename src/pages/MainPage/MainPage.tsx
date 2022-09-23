@@ -1,6 +1,8 @@
 import { Tab, Tabs, Typography } from '@mui/material';
 import { Box, Container } from '@mui/system';
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useAppDispatch, useAppSelector } from 'store/hooks';
+import { getAllEpisodes } from 'store/modules/episodes';
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -30,11 +32,22 @@ const TabPanel = (props: TabPanelProps) => {
 };
 
 const MainPage: React.FC = () => {
+  const dispatch = useAppDispatch();
+  const { episodes } = useAppSelector((state) => state.episodes);
+
   const [currentTab, setCurrentTab] = React.useState(0);
+
+  useEffect(() => {
+    dispatch(getAllEpisodes());
+  }, []);
+
+  useEffect(() => {
+    console.log(episodes);
+  }, [episodes]);
 
   return (
     <Container>
-      <Box sx={{ flexGrow: 1, bgcolor: 'background.paper', display: 'flex' }}>
+      <Box sx={{ flexGrow: 1, display: 'flex' }}>
         <Tabs
           orientation='vertical'
           variant='scrollable'
