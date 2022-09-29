@@ -1,7 +1,9 @@
 import { Tab, Tabs, Typography } from '@mui/material';
 import { Box, Container } from '@mui/system';
-import React, { useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
+import { EpisodeModel } from 'app/models/episodes';
+import EpisodeSeries from 'pages/EpisodePage/EpisodePage';
+import React, { useEffect, useState } from 'react';
+// import { NavLink } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from 'store/hooks';
 import { getAllEpisodes } from 'store/modules/episodes';
 
@@ -10,7 +12,6 @@ interface TabPanelProps {
   index: number;
   value: number;
 }
-
 function a11yProps(index: number) {
   return {
     id: `vertical-tab-${index}`,
@@ -33,25 +34,32 @@ const TabPanel = (props: TabPanelProps) => {
 };
 
 const MainPage: React.FC = () => {
+  const [filtredEpisodes, setFiltredEpisodes] = useState<EpisodeModel[]>([])
   const dispatch = useAppDispatch();
   const { episodes } = useAppSelector((state) => state.episodes);
 
   const [currentTab, setCurrentTab] = React.useState(0);
+
+  const filterByEpisodes: any = (season: number) => {
+    setFiltredEpisodes(episodes.filter((episodes) => episodes.season == season))
+    console.log(filtredEpisodes)
+  }
+  const displayEpisodes = ()=>{
+    return filtredEpisodes.map(e => <p> {e.episode}</p>)
+  }
 
   useEffect(() => {
     dispatch(getAllEpisodes());
   }, []);
 
   useEffect(() => {
-    console.log(episodes);
+    console.log(episodes)
   }, [episodes]);
 
   return (
     <Container>
-
-      
       <Box sx={{ flexGrow: 1, display: 'flex' }}>
-        <NavLink to={'episodes'}>ПРОВЕРКА </NavLink>
+        {/* <NavLink to={'episodes'}>ПРОВЕРКА </NavLink> */}
         <Tabs
           orientation='vertical'
           variant='scrollable'
@@ -60,16 +68,20 @@ const MainPage: React.FC = () => {
           aria-label='Vertical tabs example'
           sx={{ borderRight: 1, borderColor: 'divider' }}
         >
-          <Tab label='Item One' {...a11yProps(0)} />
+          <Tab label='Item One' onClick={() => { filterByEpisodes(1) }}  {...a11yProps(0)} />
+          <Tab label='Item Two' onClick={() => { filterByEpisodes(2) }} {...a11yProps(1)} />
+          <Tab label='Item Three' onClick={() => { filterByEpisodes(3) }} {...a11yProps(2)} />
         </Tabs>
-        <TabPanel value={currentTab} index={0}>
-          Item One
+        <TabPanel value={currentTab} index={0} >
+         { displayEpisodes()}
         </TabPanel>
         <TabPanel value={currentTab} index={1}>
-          Item Two
+          {displayEpisodes()}
+
         </TabPanel>
         <TabPanel value={currentTab} index={2}>
-          Item Three
+          {displayEpisodes()}
+
         </TabPanel>
       </Box>
     </Container>
