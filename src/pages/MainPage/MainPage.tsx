@@ -2,10 +2,13 @@ import { Tab, Tabs, Typography } from '@mui/material';
 import { Box, Container } from '@mui/system';
 import { EpisodeModel } from 'app/models/episodes';
 import React, { useEffect, useState } from 'react';
-// import { NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from 'store/hooks';
 import { getAllEpisodes } from 'store/modules/episodes';
 
+import Paper from '@mui/material/Paper';
+import Stack from '@mui/material/Stack';
+import { styled } from '@mui/material/styles';
 interface TabPanelProps {
   children?: React.ReactNode;
   index: number;
@@ -34,18 +37,28 @@ const TabPanel = (props: TabPanelProps) => {
 
 const MainPage: React.FC = () => {
   const [filtredEpisodes, setFiltredEpisodes] = useState<EpisodeModel[]>([]);
+  const [currentTab, setCurrentTab] = React.useState(0);
+
   const dispatch = useAppDispatch();
   const { episodes } = useAppSelector((state) => state.episodes);
 
-  const [currentTab, setCurrentTab] = React.useState(0);
-
   const filterByEpisodes: any = (season: number) => {
-    setFiltredEpisodes(episodes.filter((episodes) => episodes.season === season));
+    setFiltredEpisodes(episodes.filter((episodes) => episodes.season == season));
   };
+  
+const Item = styled(Paper)(({ theme }) => ({
+  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+  ...theme.typography.body2,
+  padding: theme.spacing(1),
+  textAlign: 'center',
+  color: theme.palette.text.secondary,
+}));
 
   useEffect(() => {
     dispatch(getAllEpisodes());
   }, []);
+  
+  
 
   useEffect(() => {
     console.log(episodes);
@@ -54,7 +67,6 @@ const MainPage: React.FC = () => {
   return (
     <Container>
       <Box sx={{ flexGrow: 1, display: 'flex' }}>
-        {/* <NavLink to={'episodes'}>ПРОВЕРКА </NavLink> */}
         <Tabs
           orientation='vertical'
           variant='scrollable'
@@ -86,19 +98,30 @@ const MainPage: React.FC = () => {
           />
         </Tabs>
         <TabPanel value={currentTab} index={0}>
-          {filtredEpisodes.map((e) => (
-            <p> {e.episode}</p>
+
+        <Stack direction="column" spacing={2}>
+        {filtredEpisodes.map((e) => (
+            <NavLink key={e.episode_id} to={`/episodes/${e.episode_id}`}> <Item> {e.episode} </Item></NavLink>
           ))}
+       
+      </Stack>
+         
         </TabPanel>
         <TabPanel value={currentTab} index={1}>
-          {filtredEpisodes.map((e) => (
-            <p> {e.episode}</p>
+        <Stack direction="column" spacing={2}>
+        {filtredEpisodes.map((e) => (
+            <NavLink key={e.episode_id} to={`/episodes/${e.episode_id}`}> <Item> {e.episode} </Item></NavLink>
           ))}
+       
+      </Stack>
         </TabPanel>
         <TabPanel value={currentTab} index={2}>
-          {filtredEpisodes.map((e) => (
-            <p> {e.episode}</p>
+        <Stack direction="column" spacing={2}>
+        {filtredEpisodes.map((e) => (
+            <NavLink key={e.episode_id} to={`/episodes/${e.episode_id}`}> <Item> {e.episode} </Item></NavLink>
           ))}
+       
+      </Stack>
         </TabPanel>
       </Box>
     </Container>
