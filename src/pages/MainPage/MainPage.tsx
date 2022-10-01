@@ -121,31 +121,25 @@ const MainPage: React.FC = () => {
           <Tab
             label='Season 6'
             onClick={() => {
-              filterByEpisodes(1);
+              filterByEpisodes(6);
             }}
             {...a11yProps(4)}
           />
           <Tab
             label='Season 7'
             onClick={() => {
-              filterByEpisodes(1);
-            }}
-            {...a11yProps(4)}
-          />
-          <Tab
-            label='Season 7'
-            onClick={() => {
-              filterByEpisodes(1);
+              filterByEpisodes(7);
             }}
             {...a11yProps(4)}
           />
           <Tab
             label='Season 8'
             onClick={() => {
-              filterByEpisodes(1);
+              filterByEpisodes(8);
             }}
             {...a11yProps(4)}
           />
+      
         </Tabs>
 
         <TabPanel value={currentTab} index={0}>
