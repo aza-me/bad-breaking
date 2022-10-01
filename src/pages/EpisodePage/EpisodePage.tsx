@@ -10,6 +10,7 @@ import { useParams } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from 'store/hooks';
 import { getEpisodeById } from 'store/modules/episodes';
 
+
 const EpisodePage: React.FC = () => {
   const dispatch = useAppDispatch();
   const { id } = useParams<{ id?: string }>();
@@ -25,28 +26,28 @@ const EpisodePage: React.FC = () => {
 
   return (
     <Container>
-      <Box sx={{display: 'flex' ,  }}>
-    <Card sx={{ maxWidth: 555, height: 600,  }}>
-      <CardMedia component='img' height='140' image='/static/images/cards/contemplative-reptile.jpg' alt='green iguana' />
-      <CardContent>
-        <Typography gutterBottom variant='h5' component='div'>
-          {currentEpisode?.title}
-        </Typography>
-        <Typography variant='body2' color='text.secondary'>
-          Episode: {currentEpisode?.episode}
-        </Typography>
-        <Typography variant='body2' color='text.secondary'>
-          In these episode:{currentEpisode?.characters}
-        </Typography>
-        <Typography variant='body2' color='text.secondary'>
-          Season:{currentEpisode?.season}
-        </Typography>
-      </CardContent>
-      <CardActions>
-        <Button size='small'>Смотреть</Button>
-      </CardActions>
-    </Card>
-    </Box>
+      <Box sx={{ display: 'flex', }}>
+        <Card sx={{ maxWidth: 555, height: 600, }}>
+          <CardMedia component='img' height='140' image='/static/images/cards/contemplative-reptile.jpg' alt='green iguana' />
+          <CardContent>
+            <Typography gutterBottom variant='h5' component='div'>
+              {currentEpisode?.title}
+            </Typography>
+            <Typography variant='body2' color='text.secondary'>
+              Episode: {currentEpisode?.episode}
+            </Typography>
+            <Typography variant='body2' color='text.secondary'>
+              In these episode:{currentEpisode?.characters}
+            </Typography>
+            <Typography variant='body2' color='text.secondary'>
+              Season:{currentEpisode?.season}
+            </Typography>
+          </CardContent>
+          <CardActions>
+            <Button size='small'>Смотреть</Button>
+          </CardActions>
+        </Card>
+      </Box>
     </Container>
   );
 };
