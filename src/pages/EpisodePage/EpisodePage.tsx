@@ -9,6 +9,7 @@ import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from 'store/hooks';
 import { getEpisodeById } from 'store/modules/episodes';
+import s from './Episode.module.scss';
 
 
 const EpisodePage: React.FC = () => {
@@ -33,6 +34,7 @@ const EpisodePage: React.FC = () => {
             <Typography gutterBottom variant='h5' component='div'>
               {currentEpisode?.title}
             </Typography>
+            <video src="" controls></video>
             <Typography variant='body2' color='text.secondary'>
               Episode: {currentEpisode?.episode}
             </Typography>
@@ -44,7 +46,6 @@ const EpisodePage: React.FC = () => {
             </Typography>
           </CardContent>
           <CardActions>
-            <Button size='small'>Смотреть</Button>
           </CardActions>
         </Card>
       </Box>

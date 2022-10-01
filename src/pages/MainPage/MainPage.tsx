@@ -118,32 +118,10 @@ const MainPage: React.FC = () => {
             }}
             {...a11yProps(0)}
           />
-          <Tab
-            label='Season 6'
-            onClick={() => {
-              filterByEpisodes(6);
-            }}
-            {...a11yProps(4)}
-          />
-          <Tab
-            label='Season 7'
-            onClick={() => {
-              filterByEpisodes(7);
-            }}
-            {...a11yProps(4)}
-          />
-          <Tab
-            label='Season 8'
-            onClick={() => {
-              filterByEpisodes(8);
-            }}
-            {...a11yProps(4)}
-          />
-      
         </Tabs>
 
         <TabPanel value={currentTab} index={0}>
-          <Box maxWidth={500} sx={{ width: "100%" }}>
+          <Box maxWidth={900} sx={{ width: "100%" }}>
             <Grid container rowSpacing={1} gap={2} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
               {filtredEpisodes.map((e) => (
                 <NavLink key={e.episode_id} to={`/episodes/${e.episode_id}`}>
@@ -213,47 +191,6 @@ const MainPage: React.FC = () => {
         </TabPanel>
 
         <TabPanel value={currentTab} index={5}>
-          <Box maxWidth={500} sx={{ width: "100%" }}>
-            <Grid container rowSpacing={1} gap={2} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-              {filtredEpisodes.map((e) => (
-                <NavLink key={e.episode_id} to={`/episodes/${e.episode_id}`}>
-                  <Grid item xs={6} >
-                    <Item> {e.episode} </Item>
-                  </Grid>
-                </NavLink>
-              ))}
-            </Grid>
-          </Box>
-        </TabPanel>
-
-        <TabPanel value={currentTab} index={6}>
-          <Box maxWidth={500} sx={{ width: "100%" }}>
-            <Grid container rowSpacing={1} gap={2} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-              {filtredEpisodes.map((e) => (
-                <NavLink key={e.episode_id} to={`/episodes/${e.episode_id}`}>
-                  <Grid item xs={6} >
-                    <Item> {e.episode} </Item>
-                  </Grid>
-                </NavLink>
-              ))}
-            </Grid>
-          </Box>
-        </TabPanel>
-
-        <TabPanel value={currentTab} index={7}>
-          <Box maxWidth={500} sx={{ width: "100%" }}>
-            <Grid container rowSpacing={1} gap={2} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-              {filtredEpisodes.map((e) => (
-                <NavLink key={e.episode_id} to={`/episodes/${e.episode_id}`}>
-                  <Grid item xs={6} >
-                    <Item> {e.episode} </Item>
-                  </Grid>
-                </NavLink>
-              ))}
-            </Grid>
-          </Box>
-        </TabPanel>
-        <TabPanel value={currentTab} index={8}>
           <Box maxWidth={500} sx={{ width: "100%" }}>
             <Grid container rowSpacing={1} gap={2} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
               {filtredEpisodes.map((e) => (
