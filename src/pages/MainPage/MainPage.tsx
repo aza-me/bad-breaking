@@ -1,13 +1,13 @@
-import { Tab, Tabs, Typography } from '@mui/material';
-import { Box, Container } from '@mui/system';
-import { EpisodeModel } from 'app/models/episodes';
 import React, { useEffect, useState } from 'react';
-import { NavLink } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from 'store/hooks';
+import { NavLink } from 'react-router-dom';
+import { Tab, Tabs, Typography } from '@mui/material';
+import { Container } from '@mui/system';
+import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
+import { EpisodeModel } from 'app/models/episodes';
 import { getAllEpisodes } from 'store/modules/episodes';
-
 import Paper from '@mui/material/Paper';
-import Stack from '@mui/material/Stack';
 import { styled } from '@mui/material/styles';
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -43,22 +43,25 @@ const MainPage: React.FC = () => {
   const { episodes } = useAppSelector((state) => state.episodes);
 
   const filterByEpisodes: any = (season: number) => {
+    
     setFiltredEpisodes(episodes.filter((episodes) => episodes.season == season));
+
   };
-  
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: 'center',
-  color: theme.palette.text.secondary,
-}));
+
+
+  const Item = styled(Paper)(({ theme }) => ({
+    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+    ...theme.typography.body2,
+    padding: theme.spacing(2),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+  }));
 
   useEffect(() => {
     dispatch(getAllEpisodes());
   }, []);
-  
-  
+
+
 
   useEffect(() => {
     console.log(episodes);
@@ -76,53 +79,117 @@ const Item = styled(Paper)(({ theme }) => ({
           sx={{ borderRight: 1, borderColor: 'divider' }}
         >
           <Tab
-            label='Item One'
+            label='Season 1'
             onClick={() => {
               filterByEpisodes(1);
             }}
             {...a11yProps(0)}
           />
           <Tab
-            label='Item Two'
+            label='Season 2'
             onClick={() => {
               filterByEpisodes(2);
             }}
             {...a11yProps(1)}
           />
           <Tab
-            label='Item Three'
+            label='Season 3'
             onClick={() => {
               filterByEpisodes(3);
             }}
             {...a11yProps(2)}
           />
-        </Tabs>
-        <TabPanel value={currentTab} index={0}>
+          <Tab
+            label='Season 4'
+            onClick={() => {
+              filterByEpisodes(1);
+            }}
+            {...a11yProps(4)}
+          />
+          <Tab
+            label='Season 5'
+            onClick={() => {
+              filterByEpisodes(5);
+            }}
+            {...a11yProps(0)}
+          />
 
-        <Stack direction="column" spacing={2}>
-        {filtredEpisodes.map((e) => (
-            <NavLink key={e.episode_id} to={`/episodes/${e.episode_id}`}> <Item> {e.episode} </Item></NavLink>
-          ))}
-       
-      </Stack>
-         
+        </Tabs>
+
+        <TabPanel value={currentTab} index={0}>
+          <Box sx={{ flexGrow: 1 }}>
+            <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+              {filtredEpisodes.map((e) => (
+                <NavLink key={e.episode_id} to={`/episodes/${e.episode_id}`}>
+                  <Grid item xs={6}>
+                    <Item> {e.episode} </Item>
+                  </Grid>
+                </NavLink>
+              ))}
+            </Grid>
+          </Box>
         </TabPanel>
+
         <TabPanel value={currentTab} index={1}>
-        <Stack direction="column" spacing={2}>
-        {filtredEpisodes.map((e) => (
-            <NavLink key={e.episode_id} to={`/episodes/${e.episode_id}`}> <Item> {e.episode} </Item></NavLink>
-          ))}
-       
-      </Stack>
+          <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+            {filtredEpisodes.map((e) => (
+              <NavLink key={e.episode_id} to={`/episodes/${e.episode_id}`}>
+                <Grid item xs={6} sm={4} md={4}>
+                  <Item> {e.episode} </Item>
+                </Grid>
+              </NavLink>
+            ))}
+          </Grid>
         </TabPanel>
+
         <TabPanel value={currentTab} index={2}>
-        <Stack direction="column" spacing={2}>
-        {filtredEpisodes.map((e) => (
-            <NavLink key={e.episode_id} to={`/episodes/${e.episode_id}`}> <Item> {e.episode} </Item></NavLink>
-          ))}
-       
-      </Stack>
+          <Grid container spacing={3}>
+            {filtredEpisodes.map((e) => (
+              <NavLink key={e.episode_id} to={`/episodes/${e.episode_id}`}>
+                <Grid item xs={4}>
+                  <Item> {e.episode} </Item>
+                </Grid>
+              </NavLink>
+            ))}
+          </Grid>
         </TabPanel>
+
+        <TabPanel value={currentTab} index={3}>
+          <Grid container spacing={3}>
+            {filtredEpisodes.map((e) => (
+              <NavLink key={e.episode_id} to={`/episodes/${e.episode_id}`}>
+                <Grid item xs={4}>
+                  <Item> {e.episode} </Item>
+                </Grid>
+              </NavLink>
+            ))}
+          </Grid>
+        </TabPanel>
+
+        <TabPanel value={currentTab} index={4}>
+          <Grid container spacing={3}>
+            {filtredEpisodes.map((e) => (
+              <NavLink key={e.episode_id} to={`/episodes/${e.episode_id}`}>
+                <Grid item xs={4}>
+                  <Item> {e.episode} </Item>
+                </Grid>
+              </NavLink>
+            ))}
+          </Grid>
+        </TabPanel>
+
+        <TabPanel value={currentTab} index={5}>
+          <Grid container spacing={3}>
+            {filtredEpisodes.map((e) => (
+              <NavLink key={e.episode_id} to={`/episodes/${e.episode_id}`}>
+                <Grid item xs={4}>
+                  <Item> {e.episode} </Item>
+                </Grid>
+              </NavLink>
+            ))}
+          </Grid>
+        </TabPanel>
+        
       </Box>
     </Container>
   );
