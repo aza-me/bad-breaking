@@ -1,8 +1,6 @@
-import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Box, Container } from '@mui/system';
 import React, { useEffect } from 'react';
@@ -23,26 +21,25 @@ const EpisodePage: React.FC = () => {
   }, []);
   useEffect(() => {
     console.log(currentEpisode);
-  }, []);
+  }, [currentEpisode]);
 
   return (
     <Container>
       <Box sx={{ display: 'flex', }}>
-        <Card sx={{ maxWidth: 555, height: 600, }}>
-          <CardMedia component='img' height='140' image='/static/images/cards/contemplative-reptile.jpg' alt='green iguana' />
+        <Card sx={{ maxWidth: "80%", height: 700, }}>
           <CardContent>
-            <Typography gutterBottom variant='h5' component='div'>
+            <Typography gutterBottom variant='h4' component='div'>
               {currentEpisode?.title}
             </Typography>
-            <video src="" controls></video>
-            <Typography variant='body2' color='text.secondary'>
+            <video className={s.video} src="" controls></video>
+            <Typography variant='h5' color='text.secondary'>
               Episode: {currentEpisode?.episode}
             </Typography>
             <Typography variant='body2' color='text.secondary'>
-              In these episode:{currentEpisode?.characters}
-            </Typography>
-            <Typography variant='body2' color='text.secondary'>
               Season:{currentEpisode?.season}
+            </Typography>
+            <Typography variant='body1' color='text.secondary'>
+              In these episode:{currentEpisode?.characters}
             </Typography>
           </CardContent>
           <CardActions>

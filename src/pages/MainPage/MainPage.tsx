@@ -44,9 +44,11 @@ const MainPage: React.FC = () => {
   const dispatch = useAppDispatch();
   const { episodes } = useAppSelector((state) => state.episodes);
 
-  const filterByEpisodes: any = (season: number) => {
+  const filterByEpisodes: any = (season: string) => {
+    console.log(episodes);
 
-    setFiltredEpisodes(episodes.filter((episodes) => episodes.season == season));
+    setFiltredEpisodes(episodes.filter((episodes) => episodes.season === season));
+    console.log(filtredEpisodes);
 
   };
 
@@ -86,35 +88,35 @@ const MainPage: React.FC = () => {
           <Tab
             label='Season 1'
             onClick={() => {
-              filterByEpisodes(1);
+              filterByEpisodes("1");
             }}
             {...a11yProps(0)}
           />
           <Tab
             label='Season 2'
             onClick={() => {
-              filterByEpisodes(2);
+              filterByEpisodes("2");
             }}
             {...a11yProps(1)}
           />
           <Tab
             label='Season 3'
             onClick={() => {
-              filterByEpisodes(3);
+              filterByEpisodes("3");
             }}
             {...a11yProps(2)}
           />
           <Tab
             label='Season 4'
             onClick={() => {
-              filterByEpisodes(1);
+              filterByEpisodes("4");
             }}
             {...a11yProps(4)}
           />
           <Tab
             label='Season 5'
             onClick={() => {
-              filterByEpisodes(5);
+              filterByEpisodes("5");
             }}
             {...a11yProps(0)}
           />
