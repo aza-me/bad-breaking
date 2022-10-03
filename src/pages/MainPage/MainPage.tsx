@@ -45,13 +45,13 @@ const MainPage: React.FC = () => {
   const { episodes } = useAppSelector((state) => state.episodes);
 
   const filterByEpisodes: any = (season: string) => {
-    console.log(episodes);
-
     setFiltredEpisodes(episodes.filter((episodes) => episodes.season === season));
     console.log(filtredEpisodes);
-
   };
-
+  const setInitialEpisodes: any = () => {
+    setFiltredEpisodes(episodes);
+    console.log(filtredEpisodes);
+  }
 
   const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -86,6 +86,14 @@ const MainPage: React.FC = () => {
           sx={{ borderRight: 1, borderColor: 'divider' }}
         >
           <Tab
+            label='All Series'
+            onClick={() => {
+              setInitialEpisodes()
+            }}
+
+            {...a11yProps(6)}
+          />
+          <Tab
             label='Season 1'
             onClick={() => {
               filterByEpisodes("1");
@@ -118,20 +126,22 @@ const MainPage: React.FC = () => {
             onClick={() => {
               filterByEpisodes("5");
             }}
-            {...a11yProps(0)}
+            {...a11yProps(5)}
           />
         </Tabs>
 
         <TabPanel value={currentTab} index={0}>
           <Box maxWidth={900} sx={{ width: "100%" }}>
             <Grid container rowSpacing={1} gap={2} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-              {filtredEpisodes.map((e) => (
-                <NavLink key={e.episode_id} to={`/episodes/${e.episode_id}`}>
-                  <Grid item xs={6} >
-                    <Item> Episode {e.episode} </Item>
-                  </Grid>
-                </NavLink>
-              ))}
+              {
+                filtredEpisodes.map((e) => (
+                  <NavLink key={e.episode_id} to={`/episodes/${e.episode_id}`}>
+                    <Grid item xs={6} >
+                      <Item> Episode {e.episode} </Item>
+                    </Grid>
+                  </NavLink>
+                ))
+              }
             </Grid>
           </Box>
         </TabPanel>
@@ -149,7 +159,6 @@ const MainPage: React.FC = () => {
             </Grid>
           </Box>
         </TabPanel>
-
         <TabPanel value={currentTab} index={2}>
           <Box maxWidth={500} sx={{ width: "100%" }}>
             <Grid container rowSpacing={1} gap={2} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
@@ -163,7 +172,6 @@ const MainPage: React.FC = () => {
             </Grid>
           </Box>
         </TabPanel>
-
         <TabPanel value={currentTab} index={3}>
           <Box maxWidth={500} sx={{ width: "100%" }}>
             <Grid container rowSpacing={1} gap={2} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
@@ -177,7 +185,6 @@ const MainPage: React.FC = () => {
             </Grid>
           </Box>
         </TabPanel>
-
         <TabPanel value={currentTab} index={4}>
           <Box maxWidth={500} sx={{ width: "100%" }}>
             <Grid container rowSpacing={1} gap={2} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
@@ -191,7 +198,6 @@ const MainPage: React.FC = () => {
             </Grid>
           </Box>
         </TabPanel>
-
         <TabPanel value={currentTab} index={5}>
           <Box maxWidth={500} sx={{ width: "100%" }}>
             <Grid container rowSpacing={1} gap={2} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
@@ -199,6 +205,19 @@ const MainPage: React.FC = () => {
                 <NavLink key={e.episode_id} to={`/episodes/${e.episode_id}`}>
                   <Grid item xs={6} >
                     <Item> {e.episode} </Item>
+                  </Grid>
+                </NavLink>
+              ))}
+            </Grid>
+          </Box>
+        </TabPanel>
+        <TabPanel value={currentTab} index={6}>
+          <Box maxWidth={500} sx={{ width: "100%" }}>
+            <Grid container rowSpacing={1} gap={2} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+              {filtredEpisodes.map((e) => (
+                <NavLink key={e.episode_id} to={`/episodes/${e.episode_id}`}>
+                  <Grid item xs={6} >
+                    <Item> Episode {e.episode} and Season {e.season}  </Item>
                   </Grid>
                 </NavLink>
               ))}
