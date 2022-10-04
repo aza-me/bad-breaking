@@ -37,3 +37,7 @@ export const deathsSlice = createSlice({
       });
   },
 });
+
+export const {} = deathsSlice.actions;
+
+export const deathsReducer = deathsSlice.reducer;
