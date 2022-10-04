@@ -39,9 +39,16 @@ const EpisodePage: React.FC = () => {
               Season:{currentEpisode?.season}
             </Typography>
             <Typography variant='body1' color='text.secondary'>
-              In these episode:{currentEpisode?.characters}
+              In these episode:{currentEpisode?.characters.map(e   => <p key={e.length}>{e}</p>)}
+            </Typography>
+            <Typography variant='body1' color='text.secondary'>
+              Дата выхода  {currentEpisode?.characters}
+            </Typography>
+            <Typography variant='body1' color='text.secondary'>
+              Дата выхода  {currentEpisode?.air_date}
             </Typography>
           </CardContent>
+
           <CardActions>
           </CardActions>
         </Card>

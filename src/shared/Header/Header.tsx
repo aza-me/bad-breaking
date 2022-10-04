@@ -1,9 +1,10 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 import s from './Header.module.scss'
-const Header:React.FC = () => {
+const Header: React.FC = () => {
   return (
     <div className={s.header}>
-        Menu
+      <NavLink to={'/characters'}> Characters</NavLink>
     </div>
   )
 }

@@ -137,7 +137,7 @@ const MainPage: React.FC = () => {
                 filtredEpisodes.map((e) => (
                   <NavLink key={e.episode_id} to={`/episodes/${e.episode_id}`}>
                     <Grid item xs={6} >
-                      <Item> Episode {e.episode} </Item>
+                      <Item> Episode {e.episode}  Season {e.season}</Item>
                     </Grid>
                   </NavLink>
                 ))
