@@ -11,8 +11,8 @@ export const GetAllDeaths = createAsyncThunk('deaths/getAllDeaths', async (param
   return await deathService.getAllDeaths(params).then((response) => response.data);
 });
 
-export const GetDeathsById = createAsyncThunk('deaths/getDeathsByIdById', async (id: number, ThunkApi) => {
-  return await deathService.getDeathsById(id).then((response) => response.data[0]);
+export const GetDeathsByName = createAsyncThunk('deaths/getDeathsByName', async (name: string | undefined, ThunkApi) => {
+  return await deathService.getDeathsByName(name).then((response) => response.data[0]);
 });
 
 export const deathsSlice = createSlice({
@@ -28,10 +28,10 @@ export const deathsSlice = createSlice({
         state.deaths = action.payload;
         state.deathssLoading = false;
       })
-      .addCase(GetDeathsById.pending, (state) => {
+      .addCase(GetDeathsByName.pending, (state) => {
         state.currentDeathLoading = true;
       })
-      .addCase(GetDeathsById.fulfilled, (state, action) => {
+      .addCase(GetDeathsByName.fulfilled, (state, action) => {
         state.currentDeath = action.payload;
         state.currentDeathLoading = false;
       });

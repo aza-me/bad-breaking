@@ -16,7 +16,7 @@ const CharactersPage: React.FC = () => {
 
 
     return (
-        <div> {deaths.map(e => <div key={e.death_id}>  <NavLink to={`/characters/${e.death_id}`} > {e.death} </NavLink> </div>)}</div>
+        <div> {deaths.map(e => <div key={e.death_id}>  <NavLink to={`/characters/${e.death}`} > {e.death} </NavLink> </div>)}</div>
     )
 }
 

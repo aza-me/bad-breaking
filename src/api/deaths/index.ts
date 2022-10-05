@@ -1,5 +1,5 @@
 import instance from 'api/instance';
-import { GetAllDeaths, GetDeathsById } from './types';
+import { GetAllDeaths, GetDeathsByName } from './types';
 
 export const getAllDeaths: GetAllDeaths = (data) => {
   return instance.get('/deaths', {
@@ -7,6 +7,6 @@ export const getAllDeaths: GetAllDeaths = (data) => {
   });
 };
 
-export const getDeathsById: GetDeathsById = (id) => {
-  return instance.get(`/deaths/${id}`);
+export const getDeathsByName: GetDeathsByName = (name) => {
+  return instance.get(`/deaths/${name}`);
 };

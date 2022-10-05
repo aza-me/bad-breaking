@@ -16,6 +16,6 @@ export interface GetAllDeaths {
   (data?: getAllDeathsParams): AxiosPromise<deathsModel[]>;
 }
 
-export interface GetDeathsById {
-  (id: number): AxiosPromise<deathsModel[]>;
+export interface GetDeathsByName {
+  (name?: string): AxiosPromise<deathsModel[]>;
 }

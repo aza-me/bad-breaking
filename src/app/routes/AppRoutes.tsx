@@ -17,11 +17,7 @@ const AppRoutes: React.FC = () => {
           <Route element={<MainPage />} path='/' />
           <Route element={<EpisodeSeries />} path='/episodes/:id' />
           <Route element={<CharactersPage />} path='/characters' />
-          <Route element={<CurrentCharacter />} path='/characters/:id' />
-
-
-
-
+          <Route element={<CurrentCharacter />} path='/characters/:name' />
         </Routes>
       </App>
     </HistoryRouter>
