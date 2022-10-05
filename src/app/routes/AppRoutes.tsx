@@ -1,5 +1,6 @@
 import App from 'App';
 import CharactersPage from 'pages/CharactersPage/CharactersPage';
+import CurrentCharacter from 'pages/CurrentCharacter/CurrentCharacter';
 import EpisodeSeries from 'pages/EpisodePage/EpisodePage';
 import MainPage from 'pages/MainPage/MainPage';
 import React from 'react';
@@ -16,6 +17,11 @@ const AppRoutes: React.FC = () => {
           <Route element={<MainPage />} path='/' />
           <Route element={<EpisodeSeries />} path='/episodes/:id' />
           <Route element={<CharactersPage />} path='/characters' />
+          <Route element={<CurrentCharacter />} path='/characters/:id' />
+
+
+
+
         </Routes>
       </App>
     </HistoryRouter>

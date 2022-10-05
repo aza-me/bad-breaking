@@ -5,6 +5,7 @@ const Header: React.FC = () => {
   return (
     <div className={s.header}>
       <NavLink to={'/characters'}> Characters</NavLink>
+      <NavLink to={'/'} > back To Main</NavLink>
     </div>
   )
 }

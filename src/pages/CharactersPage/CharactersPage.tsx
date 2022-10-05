@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import { NavLink } from 'react-router-dom'
 import { useAppDispatch, useAppSelector } from 'store/hooks'
 import { GetAllDeaths } from 'store/modules/deaths'
 
@@ -15,7 +16,7 @@ const CharactersPage: React.FC = () => {
 
 
     return (
-        <div> {deaths.map(e => <div key={e.id}>{e.death} </div>)}</div>
+        <div> {deaths.map(e => <div key={e.death_id}>  <NavLink to={`/characters/${e.death_id}`} > {e.death} </NavLink> </div>)}</div>
     )
 }
 

@@ -2,7 +2,7 @@ import { deathsModel } from 'app/models/deaths';
 import { AxiosPromise } from 'axios';
 
 export interface getAllDeathsParams {
-  id?: number;
+  death_id?: number;
   death?: string;
   cause?: string;
   responsible?: string;
