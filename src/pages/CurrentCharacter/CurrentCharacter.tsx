@@ -13,10 +13,11 @@ const CurrentCharacter: React.FC = () => {
         dispatch(GetDeathsByName(name));
     }, []);
     useEffect(() => {
-        console.log(CurrentCharacter);
+        console.log(name);
+        console.log(CurrentCharacter)
     }, [CurrentCharacter]);
     return (
-        <div>{CurrentCharacter?.last_words}</div>
+        <div>{CurrentCharacter?.last_words}{CurrentCharacter?.episode} </div>
     )
 }
 

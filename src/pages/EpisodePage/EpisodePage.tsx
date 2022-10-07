@@ -20,7 +20,7 @@ const EpisodePage: React.FC = () => {
     dispatch(getEpisodeById(+id));
   }, []);
   useEffect(() => {
-    console.log(currentEpisode);
+    console.log(currentEpisode?.air_date);
   }, [currentEpisode]);
 
   return (
@@ -38,17 +38,16 @@ const EpisodePage: React.FC = () => {
             <Typography variant='body2' color='text.secondary'>
               Season:{currentEpisode?.season}
             </Typography>
-            <Typography variant='body1' color='text.secondary'>
-              In these episode:{currentEpisode?.characters.map(e   => <p key={e.length}>{e}</p>)}
+            <Typography variant='body1' sx={{ display: 'flex', alignItems: 'center' }} color='text.secondary'>
+              In this episode:
+              <Typography variant='body1' sx={{ display: 'flex', alignItems: 'center', gap: '20px' }} color='text.secondary'>
+                {currentEpisode?.characters.map(e => e)}
+              </Typography>
             </Typography>
             <Typography variant='body1' color='text.secondary'>
-              Дата выхода  {currentEpisode?.characters}
-            </Typography>
-            <Typography variant='body1' color='text.secondary'>
-              Дата выхода  {currentEpisode?.air_date}
+              Air Date: {currentEpisode?.air_date}
             </Typography>
           </CardContent>
-
           <CardActions>
           </CardActions>
         </Card>

@@ -6,7 +6,6 @@ export const getAllDeaths: GetAllDeaths = (data) => {
     data,
   });
 };
-
 export const getDeathsByName: GetDeathsByName = (name) => {
-  return instance.get(`/deaths/${name}`);
+  return instance.get(`/death?name=${name}`);
 };

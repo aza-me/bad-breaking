@@ -10,6 +10,7 @@ import { getAllEpisodes } from 'store/modules/episodes';
 import Paper from '@mui/material/Paper';
 import { styled } from '@mui/material/styles';
 import s from './Main.module.scss';
+import Header from 'shared/Header/Header';
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -76,6 +77,7 @@ const MainPage: React.FC = () => {
 
   return (
     <Container>
+      <Header />
       <Box sx={{ flexGrow: 1, display: 'flex', maxWidth: "70%" }}>
         <Tabs
           orientation='vertical'
