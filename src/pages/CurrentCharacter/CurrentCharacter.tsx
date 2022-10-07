@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { useAppDispatch, useAppSelector } from 'store/hooks'
 import { GetDeathsByName } from 'store/modules/deaths'
+import s from './CurrentCharacter.module.scss'
 
 const CurrentCharacter: React.FC = () => {
     const dispatch = useAppDispatch()
@@ -17,7 +18,10 @@ const CurrentCharacter: React.FC = () => {
         console.log(CurrentCharacter)
     }, [CurrentCharacter]);
     return (
-        <div>{CurrentCharacter?.last_words}{CurrentCharacter?.episode} </div>
+        <div className={s.folder}>
+
+            <div className={s.item}>{CurrentCharacter?.last_words}{CurrentCharacter?.episode} </div>
+        </div>
     )
 }
 
