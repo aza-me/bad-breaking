@@ -11,7 +11,6 @@ import Paper from '@mui/material/Paper';
 import { styled } from '@mui/material/styles';
 import s from './Main.module.scss';
 import Header from 'shared/Header/Header';
-
 interface TabPanelProps {
   children?: React.ReactNode;
   index: number;
@@ -57,7 +56,7 @@ const MainPage: React.FC = () => {
   const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
     ...theme.typography.body2,
-    padding: theme.spacing(1),
+    padding: theme.spacing(2),
     textAlign: 'center',
     width: 80,
     color: theme.palette.text.secondary,
@@ -78,7 +77,7 @@ const MainPage: React.FC = () => {
   return (
     <Container>
       <Header />
-      <Box sx={{ flexGrow: 1, display: 'flex', maxWidth: "70%" }}>
+      <Box sx={{ flexGrow: 1, display: 'flex', maxWidth: "100%" }}>
         <Tabs
           orientation='vertical'
           variant='scrollable'
@@ -133,13 +132,18 @@ const MainPage: React.FC = () => {
         </Tabs>
 
         <TabPanel value={currentTab} index={0}>
-          <Box maxWidth={900} sx={{ width: "100%" }}>
-            <Grid container rowSpacing={1} gap={2} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+          <Box maxWidth={1000} sx={{ width: "100%" }}>
+            <Grid container rowSpacing={2} gap={2} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
               {
                 filtredEpisodes.map((e) => (
                   <NavLink key={e.episode_id} to={`/episodes/${e.episode_id}`}>
                     <Grid item xs={6} >
-                      <Item> Episode {e.episode}  Season {e.season}</Item>
+                      <Item> Episode {e.episode}  Season {e.season}
+                        <p>
+                          {e.title}
+                        </p>
+                      </Item>
+
                     </Grid>
                   </NavLink>
                 ))
@@ -149,12 +153,16 @@ const MainPage: React.FC = () => {
         </TabPanel>
 
         <TabPanel value={currentTab} index={1}>
-          <Box maxWidth={500} sx={{ width: "100%" }}>
-            <Grid container rowSpacing={1} gap={2} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+          <Box maxWidth={1000} sx={{ width: "100%" }}>
+            <Grid container rowSpacing={2} gap={2} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
               {filtredEpisodes.map((e) => (
                 <NavLink key={e.episode_id} to={`/episodes/${e.episode_id}`}>
                   <Grid item xs={6} >
-                    <Item> {e.episode} </Item>
+                    <Item> Episode {e.episode}  Season {e.season}
+                      <p>
+                        {e.title}
+                      </p>
+                    </Item>
                   </Grid>
                 </NavLink>
               ))}
@@ -162,12 +170,16 @@ const MainPage: React.FC = () => {
           </Box>
         </TabPanel>
         <TabPanel value={currentTab} index={2}>
-          <Box maxWidth={500} sx={{ width: "100%" }}>
-            <Grid container rowSpacing={1} gap={2} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+          <Box maxWidth={1000} sx={{ width: "100%" }}>
+            <Grid container rowSpacing={2} gap={2} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
               {filtredEpisodes.map((e) => (
                 <NavLink key={e.episode_id} to={`/episodes/${e.episode_id}`}>
                   <Grid item xs={6} >
-                    <Item> {e.episode} </Item>
+                    <Item> Episode {e.episode}  Season {e.season}
+                      <p>
+                        {e.title}
+                      </p>
+                    </Item>
                   </Grid>
                 </NavLink>
               ))}
@@ -175,12 +187,16 @@ const MainPage: React.FC = () => {
           </Box>
         </TabPanel>
         <TabPanel value={currentTab} index={3}>
-          <Box maxWidth={500} sx={{ width: "100%" }}>
-            <Grid container rowSpacing={1} gap={2} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+          <Box maxWidth={1000} sx={{ width: "100%" }}>
+            <Grid container rowSpacing={2} gap={2} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
               {filtredEpisodes.map((e) => (
                 <NavLink key={e.episode_id} to={`/episodes/${e.episode_id}`}>
                   <Grid item xs={6} >
-                    <Item> {e.episode} </Item>
+                    <Item> Episode {e.episode}  Season {e.season}
+                      <p>
+                        {e.title}
+                      </p>
+                    </Item>
                   </Grid>
                 </NavLink>
               ))}
@@ -188,12 +204,16 @@ const MainPage: React.FC = () => {
           </Box>
         </TabPanel>
         <TabPanel value={currentTab} index={4}>
-          <Box maxWidth={500} sx={{ width: "100%" }}>
-            <Grid container rowSpacing={1} gap={2} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+          <Box maxWidth={1000} sx={{ width: "100%" }}>
+            <Grid container rowSpacing={2} gap={2} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
               {filtredEpisodes.map((e) => (
                 <NavLink key={e.episode_id} to={`/episodes/${e.episode_id}`}>
                   <Grid item xs={6} >
-                    <Item> {e.episode} </Item>
+                    <Item> Episode {e.episode}  Season {e.season}
+                      <p>
+                        {e.title}
+                      </p>
+                    </Item>
                   </Grid>
                 </NavLink>
               ))}
@@ -201,12 +221,16 @@ const MainPage: React.FC = () => {
           </Box>
         </TabPanel>
         <TabPanel value={currentTab} index={5}>
-          <Box maxWidth={500} sx={{ width: "100%" }}>
-            <Grid container rowSpacing={1} gap={2} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+          <Box maxWidth={1000} sx={{ width: "100%" }}>
+            <Grid container rowSpacing={2} gap={2} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
               {filtredEpisodes.map((e) => (
                 <NavLink key={e.episode_id} to={`/episodes/${e.episode_id}`}>
                   <Grid item xs={6} >
-                    <Item> {e.episode} </Item>
+                    <Item> Episode {e.episode}  Season {e.season}
+                      <p>
+                        {e.title}
+                      </p>
+                    </Item>
                   </Grid>
                 </NavLink>
               ))}
@@ -214,12 +238,16 @@ const MainPage: React.FC = () => {
           </Box>
         </TabPanel>
         <TabPanel value={currentTab} index={6}>
-          <Box maxWidth={500} sx={{ width: "100%" }}>
-            <Grid container rowSpacing={1} gap={2} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+          <Box maxWidth={1000} sx={{ width: "100%" }}>
+            <Grid container rowSpacing={2} gap={2} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
               {filtredEpisodes.map((e) => (
                 <NavLink key={e.episode_id} to={`/episodes/${e.episode_id}`}>
                   <Grid item xs={6} >
-                    <Item> Episode {e.episode} and Season {e.season}  </Item>
+                    <Item> Episode {e.episode}  Season {e.season}
+                      <p>
+                        {e.title}
+                      </p>
+                    </Item>
                   </Grid>
                 </NavLink>
               ))}

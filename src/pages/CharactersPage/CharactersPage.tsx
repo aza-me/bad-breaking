@@ -28,8 +28,6 @@ const CharactersPage: React.FC = () => {
     useEffect(() => {
         console.log(deaths);
     }, [deaths]);
-
-
     return (
         <div className={s.folder}>
             {deaths.map(e => <div key={e.death_id} className={s.item}>  <NavLink to={`/characters/${e.death.split(' ').splice(0,1).join('+')}`} ><Item> {e.death}</Item> </NavLink> </div>)}

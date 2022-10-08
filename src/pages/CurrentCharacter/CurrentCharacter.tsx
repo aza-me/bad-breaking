@@ -8,7 +8,6 @@ const CurrentCharacter: React.FC = () => {
     const dispatch = useAppDispatch()
     const { name } = useParams<{ name: string }>()
     const CurrentCharacter = useAppSelector((state) => state.deaths.currentDeath)
-
     useEffect(() => {
         if (!name) return;
 

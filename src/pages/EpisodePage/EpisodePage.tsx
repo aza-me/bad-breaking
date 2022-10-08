@@ -40,8 +40,8 @@ const EpisodePage: React.FC = () => {
             </Typography>
             <Typography variant='body1' sx={{ display: 'flex', alignItems: 'center' }} color='text.secondary'>
               In this episode:
-              <Typography variant='body1' sx={{ display: 'flex', alignItems: 'center', gap: '20px' }} color='text.secondary'>
-                {currentEpisode?.characters.map(e => e)}
+              <Typography variant='body1' color='text.secondary'>
+                <div className={s.characters}>   {currentEpisode?.characters.map((e: string, i: number) => <p key={i}>{e}</p>)}</div>
               </Typography>
             </Typography>
             <Typography variant='body1' color='text.secondary'>
