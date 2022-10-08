@@ -11,11 +11,12 @@ const CurrentCharacter: React.FC = () => {
 
     useEffect(() => {
         if (!name) return;
+
         dispatch(GetDeathsByName(name));
     }, []);
     useEffect(() => {
-        console.log(name);
-        console.log(CurrentCharacter)
+        console.log("api:", CurrentCharacter)
+        console.log("name:", name);
     }, [CurrentCharacter]);
     return (
         <div className={s.folder}>

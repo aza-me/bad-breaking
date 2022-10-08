@@ -17,7 +17,7 @@ const CharactersPage: React.FC = () => {
         ...theme.typography.body2,
         padding: theme.spacing(2),
         textAlign: 'center',
-        width: 120,
+        width: '100%',
         color: theme.palette.text.secondary,
     }));
 
@@ -32,7 +32,7 @@ const CharactersPage: React.FC = () => {
 
     return (
         <div className={s.folder}>
-            {deaths.map(e => <div key={e.death_id} className={s.item}>  <NavLink to={`/characters/${e.death}`} ><Item> {e.death}</Item> </NavLink> </div>)}
+            {deaths.map(e => <div key={e.death_id} className={s.item}>  <NavLink to={`/characters/${e.death.split(' ').splice(0,1).join('+')}`} ><Item> {e.death}</Item> </NavLink> </div>)}
         </div>
     )
 }
