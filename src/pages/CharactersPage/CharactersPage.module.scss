@@ -4,8 +4,9 @@
 
   display: flex;
   align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  flex-direction: column;
   gap: 60px;
 
   .item {
@@ -15,5 +16,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
+    a {
+      text-decoration: none;
+    }
   }
 }
