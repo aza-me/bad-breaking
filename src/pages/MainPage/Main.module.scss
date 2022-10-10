@@ -1,10 +1,16 @@
 .folder {
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important;
+  width: 100vw;
+  height: 100vh;
 
-  border: 5px solid black;
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  background-image: url(../../assets/image/pic.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
+
 
 .grid {
   a {
