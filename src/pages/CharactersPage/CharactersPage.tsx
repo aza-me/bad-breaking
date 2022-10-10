@@ -12,6 +12,7 @@ import { Box, Container } from '@mui/system'
 const CharactersPage: React.FC = () => {
     const dispatch = useAppDispatch()
     const { deaths } = useAppSelector((state) => state.deaths)
+    
 
     const Item = styled(Paper)(({ theme }) => ({
         backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
