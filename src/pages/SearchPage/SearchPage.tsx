@@ -23,7 +23,7 @@ const SearchPage: React.FC = () => {
         dispatch(GetAllDeaths())
         console.log(arr);
 
-    },[])
+    }, [])
     return (
         <div className={s.folder}>
             <input value={input} onChange={(e) => inputChange(e.target.value)} type="text" name="" id="" />
