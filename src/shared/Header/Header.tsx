@@ -1,10 +1,22 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import s from './Header.module.scss'
 import icon from '../../assets/image/logo.png'
-import SearchSharpIcon from '@mui/icons-material/SearchSharp';
-import { Icon } from '@mui/material';
+
 const Header: React.FC = () => {
+  const [darkMode, setDarkMode] = useState(false)
+
+  useEffect(() => {
+    const body = document.body
+
+    if (darkMode === true) {
+      body.classList.add('dark-mode')
+    } else {
+      body.classList.remove('dark-mode')
+    }
+  }, [darkMode])
+
+
   return (
     <div className={s.header}>
 
@@ -20,6 +32,14 @@ const Header: React.FC = () => {
         </NavLink>
 
       </div>
+
+      <div
+        id="toggle"
+        // className={toggle}
+        onClick={() => darkMode === false ? setDarkMode(true) : setDarkMode(false)}
+      >
+        <div className={s.toggle_inner} />
+      </div>
       <div className={s.items}>
         <NavLink to={'/search'}>
           Lets search on site
@@ -27,10 +47,6 @@ const Header: React.FC = () => {
 
       </div>
       <div className={s.items}></div>
-
-
-
-
     </div>
   )
 }

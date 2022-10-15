@@ -9,7 +9,7 @@ import { Route, Routes, unstable_HistoryRouter as HistoryRouter } from 'react-ro
 import history from './history';
 
 const AppRoutes: React.FC = () => {
-  return (
+  return (      
     <HistoryRouter history={history}>
       <App>
         <Routes>
