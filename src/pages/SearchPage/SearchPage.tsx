@@ -36,7 +36,7 @@ const SearchPage: React.FC = () => {
             {
                 input.length != 0 ? (filtredDeath.map(e => <p>Death: {e.last_words}</p>)) : (deaths.map(e => <p>  Death: {e.last_words}</p>))
             }
-             {
+            {
                 input.length != 0 ? (filtredEpisodes.map(e => <p> Episode {e.title}</p>)) : (episodes.map(e => <p> Episode {e.title}</p>))
             }
 
