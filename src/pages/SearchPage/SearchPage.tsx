@@ -20,7 +20,7 @@ const SearchPage: React.FC = () => {
     const inputChange = (text: string) => {
         setInput(text)
         console.log(input);
-        const data = deaths.filter(deaths => deaths.last_words.includes(input))
+        const data = deaths.filter(deaths => deaths.last_words.toLowerCase().includes(input.toLowerCase()))
         setFiltredDeath(data)
         const episodeData = episodes.filter(episodes => episodes.title.includes(input))
         setFiltredEpisodes(episodeData)
